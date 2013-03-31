@@ -8,6 +8,7 @@ gem "paperclip", "~> 3.0"
 gem "cocaine", "~> 0.5.0"
 gem 'jquery_datepicker'
 gem 'json'
+gem 'gmaps4rails'
 
 group :production do
   gem 'pg'

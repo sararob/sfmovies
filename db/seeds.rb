@@ -8,4 +8,17 @@
 
 require 'json'
 
-Movies = JSON.parse('https://data.sfgov.org/api/views/yitu-d5am/rows.json?accessType=DOWNLOAD')
+@movies = ActiveSupport::JSON.decode(open('http://data.sfgov.org/resource/yitu-d5am.json').read).each do |o|
+  movie = Movie.new(o, :without_protection => true)
+  movie.title = o[:title]
+  movie.actor_1 = o[:actor_1]
+  movie.actor_2 = o[:actor_2]
+  movie.actor_3 = o[:actor_3]
+  movie.writer = o[:writer]
+  movie.locations = o[:locations]
+  movie.release_year = o[:release_year]
+  movie.director = o[:director]
+  movie.production_company = o[:production_company]
+  Movie.save
+end
+

@@ -1,0 +1,18 @@
+# copy this file to config.yml and substitute in your settings
+development:
+  socrata_auth_token: 92BzXghKe8J80YDtOxb8brBAr
+  socrata_secret_token: OKHcmRWFMcIYzhKxerQdT6mItYwTUxJI_zJM
+  socrata_powered_site: https://opendata.socrata.com
+  cookie_secret: random_hash_here
+
+staging:
+  socrata_auth_token: 92BzXghKe8J80YDtOxb8brBAr
+  socrata_secret_token: OKHcmRWFMcIYzhKxerQdT6mItYwTUxJI_zJM
+  socrata_powered_site: https://opendata.socrata.com
+  cookie_secret: random_hash_here
+
+production:
+  socrata_auth_token: 92BzXghKe8J80YDtOxb8brBAr
+  socrata_secret_token: OKHcmRWFMcIYzhKxerQdT6mItYwTUxJI_zJM
+  socrata_powered_site: https://opendata.socrata.com
+  cookie_secret: random_hash_here

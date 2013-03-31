@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  actor_1: MyString
+  locations: MyString
+  release_year: MyString
+  string: MyString
+  actor_2: MyString
+  actor_3: MyString
+  writer: MyString
+  director: MyString
+
+two:
+  title: MyString
+  actor_1: MyString
+  locations: MyString
+  release_year: MyString
+  string: MyString
+  actor_2: MyString
+  actor_3: MyString
+  writer: MyString
+  director: MyString

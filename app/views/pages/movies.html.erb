@@ -4,8 +4,11 @@
 <% end %>
 
 <% if params[:tag] %>
+<div class="page">
+	<section class="page-section hero-unit">
+				<div class="page-content">
 <div class="movie-info">
-<h2><%= params[:tag] %></h2>
+<header class="page-section-header"><h2><%= params[:tag] %></h2></header>
 <br>
 <p class="label">Set Locations:</p><br>
 <% @movieselect.each do |m| %>
@@ -31,6 +34,8 @@
 		<br>
 <% end %>
 <% end %>
+		</div>
+	</section>
 </div>
 <% end %>
 <br>

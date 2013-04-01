@@ -1,14 +1,15 @@
+<div class="hero-unit">
+<h2>Seen in San Francisco</h2>
+<p>Many famous movies have been filmed in SF! Select a movie below to get details on scene locations, actors, and more.</p>
 <div class="btn-group">
-  <button class="btn">Select a Movie</button>
-  <button class="btn dropdown-toggle" data-toggle="dropdown">
+  <button class="btn btn-large btn-info">Select a Movie</button>
+  <button class="btn btn-large dropdown-toggle btn-info" data-toggle="dropdown">
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-		<% @movies.each do |m| %>
-			<% unless m["locations"].nil? %>
-				<% title = m["title"] %>
-    		<li><%= link_to title, movies_path(tag: title) %></li>
-			<% end %>
+		<% @movielist.each do |m| %>
+    		<li><%= link_to m, movies_path(tag: m) %></li>
 			<% end %>
   </ul>
+</div>
 </div>

@@ -1,8 +1,9 @@
 Sfmovies::Application.routes.draw do
   
-  root :to => "pages#home"
+  root :to => "pages#movies"
   get "about" => "pages#about"
-  get "movies" => "pages#movies"
+  get "movies(/:tag)" => "pages#movies", as: :movies
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

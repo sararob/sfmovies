@@ -1,8 +1,38 @@
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry"></script>
-<% @movies.each do |m| %>
-	<% unless m["locations"].nil? %>
-		<%= m["title"]%>:
-		<%= m["locations"] %>
-	<% end %>
-	<br>
+<% unless params[:tag] %>
+<%= render 'selectmovie' %>
 <% end %>
+
+<% if params[:tag] %>
+<div class="movie-info">
+<h2><%= params[:tag] %></h2>
+<br>
+<p class="label">Set Locations:</p><br>
+<% @movieselect.each do |m| %>
+		<%= m["locations"] %>
+		<br>
+<% end %>
+<br>
+<p class="label">Actors:</p><br>
+<% @info.each do |m| %>
+		<%= m["actor_1"] %>
+		<br>
+		<%= m["actor_2"] %>
+		<br>
+		<%= m["actor_3"] %>
+<% end %>
+<br>
+
+
+<% @info.each do |m| %>
+		<% if m["fun_facts"] %>
+		<p class="label">Fun Fact:</p><br>
+		<%= m["fun_facts"] %>
+		<br>
+<% end %>
+<% end %>
+</div>
+<% end %>
+<br>
+<br>
+

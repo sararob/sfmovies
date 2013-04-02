@@ -1,6 +1,7 @@
 <div class="hero-unit">
 <h2>Seen in San Francisco</h2>
-<p>Many famous movies have been filmed in SF! Select a movie below to get details on scene locations, actors, and more.</p>
+<p class="descript">Many famous movies have been filmed in SF! Select a movie below to get details on scene locations, actors, and more.</p>
+<div class="btn-toolbar">
 <div class="btn-group">
   <button class="btn btn-large btn-info">Select a Movie</button>
   <button class="btn btn-large dropdown-toggle btn-info" data-toggle="dropdown">
@@ -11,5 +12,6 @@
     		<li><%= link_to m, movies_path(tag: m) %></li>
 			<% end %>
   </ul>
+</div>
 </div>
 </div>

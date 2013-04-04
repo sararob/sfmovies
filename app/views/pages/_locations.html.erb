@@ -1,0 +1,14 @@
+<% markers = "" %>
+<% @movieselect.each do |m| %>
+		
+		<% @address = URI::encode(m["locations"]) %>
+		<% @mapquery = ActiveSupport::JSON.decode(open("http://maps.googleapis.com/maps/api/geocode/json?address=" + @address + ",+San+Francisco,+CA&sensor=false").read) %>
+		<% @lat = @mapquery["results"][0]["geometry"]["location"]["lat"].to_s %>
+		<% @lng = @mapquery["results"][0]["geometry"]["location"]["lng"].to_s %>
+		<% markers += "&markers=" + @lat + "," + @lng %>
+		<% @maplink = "https://maps.googleapis.com/maps/api/staticmap?center=" + @lat + "," + @lng + "&zoom=15&size=400x400&markers=" + @lat + "," + @lng + "&sensor=false" %>
+		<%= link_to m["locations"], @maplink, :target => "_blank" %>
+		<br>
+<% end %>
+<% @fullmap = "https://maps.googleapis.com/maps/api/staticmap?center=San+Francisco,+CA&zoom=15&size=400x400" + markers + "&sensor=false" %>
+<% image_tag(@fullmap) %>

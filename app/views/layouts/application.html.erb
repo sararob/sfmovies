@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag %>
 </head>
-<body>
+<body onload="initialize()">
 <%= render 'layouts/header' %>
 <%= yield %>
 <%= render 'layouts/footer' %>

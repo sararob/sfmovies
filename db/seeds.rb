@@ -9,7 +9,6 @@
 require 'json'
 
 @movies = ActiveSupport::JSON.decode(open('http://data.sfgov.org/resource/yitu-d5am.json').read).each do |o|
-  print "."
   movie = Movie.new(o, :without_protection => true)
   movie.title = o["title"]
   movie.actor_1 = o["actor_1"]

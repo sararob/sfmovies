@@ -21,6 +21,6 @@ require 'json'
   movie.production_company = o["production_company"]
   movie.distributor = o["distributor"]
   movie.fun_facts = o["fun_facts"]
-  movie.save
+  movie.save!
 end
 

@@ -9,6 +9,7 @@ gem "cocaine", "~> 0.5.0"
 gem 'jquery_datepicker'
 gem 'json'
 gem 'gmaps4rails'
+gem 'exceptional'
 
 group :production do
   gem 'pg'

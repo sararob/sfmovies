@@ -9,6 +9,7 @@
 require 'json'
 
 @movies = ActiveSupport::JSON.decode(open('http://data.sfgov.org/resource/yitu-d5am.json').read).each do |o|
+  print "."
   movie = Movie.new(o, :without_protection => true)
   movie.title = o["title"]
   movie.actor_1 = o["actor_1"]
@@ -21,6 +22,15 @@ require 'json'
   movie.production_company = o["production_company"]
   movie.distributor = o["distributor"]
   movie.fun_facts = o["fun_facts"]
-  movie.save!
+  if o["locations"]
+    @address = URI::encode(o["locations"])
+    @locations = ActiveSupport::JSON.decode(open("http://maps.googleapis.com/maps/api/geocode/json?address=" + @address + ",+San+Francisco,+CA&sensor=false").read)
+    if @locations["status"] == "OK"
+      @lat = @locations["results"][0]["geometry"]["location"]["lat"]
+      @lng = @locations["results"][0]["geometry"]["location"]["lng"]
+      movie.lat = @lat
+      movie.lng = @lng
+      movie.save!
+    end
+  end
 end
-

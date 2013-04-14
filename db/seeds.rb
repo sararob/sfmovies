@@ -22,7 +22,7 @@ require 'json'
   movie.production_company = o["production_company"]
   movie.distributor = o["distributor"]
   movie.fun_facts = o["fun_facts"]
-  if o["locations"]
+  if o["locations"] && o["actor_1"]
     @address = URI::encode(o["locations"])
     @locations = ActiveSupport::JSON.decode(open("http://maps.googleapis.com/maps/api/geocode/json?address=" + @address + ",+San+Francisco,+CA&sensor=false").read)
     if @locations["status"] == "OK"
